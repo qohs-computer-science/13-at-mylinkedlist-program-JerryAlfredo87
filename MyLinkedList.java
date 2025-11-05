@@ -3,7 +3,7 @@ public class MyLinkedList
     private ListNode head;
     private int size;
 
-    public myLinkedList()
+    public MyLinkedList()
     {
         head = null;
         size = 0;
@@ -25,19 +25,36 @@ public class MyLinkedList
 
     public String toString()
     {
-        
+        ListNode temp = new ListNode(head, null);
+        String returned = "";
+        while(temp.getValue()!= null)
+        {
+            returned += temp.getValue() + ", ";
+            if(temp.getNext() != null)
+            {
+                temp.setValue(temp.getNext());
+            }
+        }
+        return returned;
     }
 
     public boolean add(Object newItem)
     {
-        head.setNext(new ListNode(newItem, null));
+        if(size != 0)
+        {
+            head.setNext(new ListNode(newItem, null));
+        }
+        else
+        {
+            head.setValue(new ListNode(newItem, null));
+        }
         size++;
         return true;
     }
 
     public boolean addFirst(Object newItem)
     {
-        head = newListNode(newItem, head);
+        head = new ListNode(newItem, head);
         size++;
         return true;
     }
