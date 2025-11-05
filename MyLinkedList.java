@@ -40,13 +40,13 @@ public class MyLinkedList
 
     public boolean add(Object newItem)
     {
-        if(size != 0)
+        if(!isEmpty())
         {
             head.setNext(new ListNode(newItem, null));
         }
         else
         {
-            head.setValue(new ListNode(newItem, null));
+            head= new ListNode(newItem, null);
         }
         size++;
         return true;
