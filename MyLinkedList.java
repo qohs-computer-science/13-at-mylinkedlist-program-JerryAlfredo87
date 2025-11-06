@@ -25,15 +25,13 @@ public class MyLinkedList
 
     public String toString()
     {
-        ListNode temp = new ListNode(head, null);
+        ListNode temp = head;
         String returned = "";
-        while(temp.getValue()!= null)
+        while(temp!= null)
         {
             returned += temp.getValue() + ", ";
-            if(temp.getNext() != null)
-            {
-                temp.setValue(temp.getNext());
-            }
+            temp.setValue(temp.getNext());
+            
         }
         return returned;
     }
@@ -64,5 +62,33 @@ public class MyLinkedList
         add(newItem);
         size++;
         return true;
+    }
+
+    public Object get(int i)
+    {
+        ListNode temp = head;
+        for(int x = 0; x < i; x++)
+        {
+            if(temp.getValue() != null && temp.getNext() != null)
+            {
+                temp.setValue(temp.getNext());
+            }
+        }
+        return temp.getValue();
+    }
+
+    public Object set(int i, Object newValue)
+    {
+        ListNode temp = head;
+        for(int x = 0; x < i; x++)
+        {
+            if(temp.getValue() != null && temp.getNext() != null)
+            {
+                temp.setValue(temp.getNext());
+            }
+        }
+        Object old = temp.getValue();
+        temp.setValue(newValue);
+        return old;
     }
 }

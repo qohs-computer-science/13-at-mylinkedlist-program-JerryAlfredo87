@@ -27,7 +27,15 @@ public class MyLLTester
     chris.addFirst("Christopher");
     chris.add("Wong");
     chris.addLast("Lee");
-
+    
+    System.out.println(leo.set(1, "Thomas"));
+    System.out.println(leo.get(1));
+    
+    System.out.println(liam.set(2, "Cool"));
+    System.out.println(liam.get(2));
+    
+    System.out.println(chris.set(0, "Chris"));
+    System.out.println(chris.get(0));
   }// end main
 }// end class
 
