@@ -9,33 +9,40 @@ public class MyLLTester
     
     System.out.println(leo.size());
     System.out.println(leo.isEmpty());
-    leo.toString();
+    System.out.println("Leo List:\n"+leo.toString()+"\nend\n");
     leo.add("Yuzhe");
     leo.addFirst("Leo");
     leo.addLast("Wang");
+    System.out.println("Leo List:\n"+leo.toString()+"\nend\n");
+    System.out.println(leo.set(1, "Thomas"));
+    System.out.println(leo.get(1));
+
 
     System.out.println(liam.size());
     System.out.println(liam.isEmpty());
-    liam.toString();
+    System.out.println("Liam List:\n"+liam.toString()+"\nend\n");
     liam.addLast("Gillaspy");
     liam.addFirst("Liam");
     liam.add("Nice");
+    System.out.println("Liam List:\n"+liam.toString()+"\nend\n");
+    System.out.println(liam.set(2, "Cool"));
+    System.out.println(liam.get(2));
+
 
     System.out.println(chris.size());
     System.out.println(chris.isEmpty());
-    chris.toString();
+    System.out.println("Chris List:\n"+chris.toString()+"\nend\n");
     chris.addFirst("Christopher");
     chris.add("Wong");
     chris.addLast("Lee");
-    
-    System.out.println(leo.set(1, "Thomas"));
-    System.out.println(leo.get(1));
-    
-    System.out.println(liam.set(2, "Cool"));
-    System.out.println(liam.get(2));
-    
+    System.out.println("Chris List:\n"+chris.toString()+"\nend\n");
     System.out.println(chris.set(0, "Chris"));
     System.out.println(chris.get(0));
+    
+    
+    
+    
+    
   }// end main
 }// end class
 

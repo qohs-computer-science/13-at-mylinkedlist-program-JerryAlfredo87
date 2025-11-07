@@ -30,7 +30,7 @@ public class MyLinkedList
         while(temp!= null)
         {
             returned += temp.getValue() + ", ";
-            temp.setValue(temp.getNext());
+            temp = temp.getNext();
             
         }
         return returned;
@@ -38,9 +38,16 @@ public class MyLinkedList
 
     public boolean add(Object newItem)
     {
-        if(!isEmpty())
+        ListNode temp = head;
+        if(!isEmpty()) // adding at the end - need loop
         {
-            head.setNext(new ListNode(newItem, null));
+            while(temp.getNext() != null)
+            {
+                
+                temp = temp.getNext();
+                
+            }
+            temp.setNext(new ListNode (newItem, null));
         }
         else
         {
@@ -90,5 +97,33 @@ public class MyLinkedList
         Object old = temp.getValue();
         temp.setValue(newValue);
         return old;
+    }
+
+    public Object remove(int i)
+    {
+        ListNode temp = head;
+        Object removed;
+        for(int x = 0; x <= i; x++)
+        {
+            if(x == i)
+            {
+                removed = head.getValue();
+                head = head.getNext();
+                return removed;
+            }
+            if(temp.getValue() != null && temp.getNext() != null)
+            {
+                if(x + 1 == i)
+                {
+                    removed = temp.getNext();
+                    ListNode other = temp.getNext();
+                    
+                    return removed;
+                }
+                
+                
+                temp.setValue(temp.getNext());
+            }
+        }
     }
 }
