@@ -117,7 +117,7 @@ public class MyLinkedList
                 {
                     removed = temp.getNext();
                     ListNode other = temp.getNext();
-                    
+                    temp.setNext(other.getNext());
                     return removed;
                 }
                 
@@ -125,5 +125,30 @@ public class MyLinkedList
                 temp.setValue(temp.getNext());
             }
         }
+    }
+
+    public Object removeFirst()
+    {
+        Object removed = head.getValue();
+        if(head.getValue() != null)
+        {
+            remove(0);
+        }
+        return removed;
+    }
+
+    public Object removeLast()
+    {
+        ListNode temp = head;
+        Object removed;
+        int count = 0;
+        while(temp.getNext() != null)
+        {
+            temp = temp.getNext();
+            count++;
+        }
+        removed = temp.getValue();
+        remove(count);
+        return removed;
     }
 }
