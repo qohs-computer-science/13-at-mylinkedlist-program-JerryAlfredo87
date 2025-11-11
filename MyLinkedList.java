@@ -1,3 +1,7 @@
+//Name: Meade Havenstein
+//Pd: 6, Date: 11/4/25
+//Purpose: Create multiple methods in order to manipulate methods created by user. Test code regularly.
+
 public class MyLinkedList
 {
     private ListNode head;
@@ -7,34 +11,37 @@ public class MyLinkedList
     {
         head = null;
         size = 0;
-    }
+    }//end constructor
 
     public int size()
     {
         return size;
-    }
+    }//end size
 
     public boolean isEmpty()
     {
         if(size==0)
         {
             return true;
-        }
+        }//end if
         return false;
-    }
+    }//end isEmpty
 
     public String toString()
     {
         ListNode temp = head;
         String returned = "";
+        if(temp == null)
+        {
+            returned = "Empty list";
+        }//end if
         while(temp!= null)
         {
             returned += temp.getValue() + ", ";
             temp = temp.getNext();
-            
-        }
+        }//end while
         return returned;
-    }
+    }//end toString
 
     public boolean add(Object newItem)
     {
@@ -46,30 +53,30 @@ public class MyLinkedList
                 
                 temp = temp.getNext();
                 
-            }
+            }//end while
             temp.setNext(new ListNode (newItem, null));
-        }
+        }//end if
         else
         {
             head= new ListNode(newItem, null);
-        }
+        }//end else
         size++;
         return true;
-    }
+    }//end add
 
     public boolean addFirst(Object newItem)
     {
         head = new ListNode(newItem, head);
         size++;
         return true;
-    }
+    }//end addFirst
 
     public boolean addLast(Object newItem)
     {
         add(newItem);
         size++;
         return true;
-    }
+    }//end addLast
 
     public Object get(int i)
     {
@@ -78,11 +85,11 @@ public class MyLinkedList
         {
             if(temp.getValue() != null && temp.getNext() != null)
             {
-                temp.setValue(temp.getNext());
-            }
-        }
+                temp = temp.getNext();
+            }//end if
+        }//end for
         return temp.getValue();
-    }
+    }//end get
 
     public Object set(int i, Object newValue)
     {
@@ -91,13 +98,13 @@ public class MyLinkedList
         {
             if(temp.getValue() != null && temp.getNext() != null)
             {
-                temp.setValue(temp.getNext());
-            }
-        }
+                temp = temp.getNext();
+            }//end if
+        }//end for
         Object old = temp.getValue();
         temp.setValue(newValue);
         return old;
-    }
+    }//end set
 
     public Object remove(int i)
     {
@@ -110,22 +117,22 @@ public class MyLinkedList
                 removed = head.getValue();
                 head = head.getNext();
                 return removed;
-            }
+            }//end if
             if(temp.getValue() != null && temp.getNext() != null)
             {
                 if(x + 1 == i)
                 {
-                    removed = temp.getNext();
                     ListNode other = temp.getNext();
                     temp.setNext(other.getNext());
+                    removed = other.getValue();
                     return removed;
-                }
-                
-                
-                temp.setValue(temp.getNext());
-            }
-        }
-    }
+                }//end if
+                temp = temp.getNext();
+            }//end if
+        }//end for
+        removed = "Not found";
+        return removed;
+    }//end remove
 
     public Object removeFirst()
     {
@@ -133,9 +140,9 @@ public class MyLinkedList
         if(head.getValue() != null)
         {
             remove(0);
-        }
+        }//end if
         return removed;
-    }
+    }//end removeFirst
 
     public Object removeLast()
     {
@@ -146,9 +153,9 @@ public class MyLinkedList
         {
             temp = temp.getNext();
             count++;
-        }
+        }//end while
         removed = temp.getValue();
         remove(count);
         return removed;
-    }
-}
+    }//end removeLast
+}//end linkedList
